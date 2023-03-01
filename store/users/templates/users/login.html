@@ -4,6 +4,26 @@
 <title>Store - Авторизация</title>
 {% endblock %}
 
+{% block error %}
+{% if form.non_field_errors or messages %}
+<div class="alert
+      {% if messages %} alert-success {% else %} alert-warning {% endif %}
+      alert-dismissible fade show" role="alert"
+     style="margin-top: 50px;">
+           {% if messages %}
+                {% for massage in messages %}
+                    {{ massage }}
+                {% endfor %}
+           {% else %}
+                {{ form.non_field_errors }}
+           {% endif %}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+{%endblock %}
+
 {% block content %}
 <div class="card-header"><h3 class="text-center font-weight-light my-4">Авторизация</h3>
 </div>

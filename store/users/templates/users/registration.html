@@ -3,6 +3,19 @@
 {% block title %}
     <title>Store - Регистрация</title>
 {% endblock %}
+
+{% block error %}
+{% if form.errors %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert"
+     style="margin-top: 50px;">
+    {{ form.errors }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endif %}
+{%endblock %}
+
 {% block content %}
     <div class="card-header"><h3 class="text-center font-weight-light my-4">Создать аккаунт</h3>
     </div>
