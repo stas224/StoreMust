@@ -28,3 +28,4 @@ python manage.py runserver
 ```
 ## Скриншоты приложения 
 ![image_2023-03-20_19-13-09.png](https://ic.wampi.ru/2023/03/20/image_2023-03-20_19-13-09.png)
+[![image_2023-03-20_19-13-09.th.png](https://ic.wampi.ru/2023/03/20/image_2023-03-20_19-13-09.th.png)](https://wampi.ru/image/RlySSFY)
