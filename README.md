@@ -27,8 +27,11 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 ## Скриншоты приложения 
-- Главная страница магазина
-[![image_2023-03-20_19-37-31.png](https://im.wampi.ru/2023/03/20/image_2023-03-20_19-37-31.png)](https://wampi.ru/image/Rlyp89q)
-- Каталог магазина
+
+### Главная страница магазина
+![image_2023-03-20_19-37-31.png](https://im.wampi.ru/2023/03/20/image_2023-03-20_19-37-31.png)
+### Каталог магазина
 ![image_2023-03-20_19-13-09.png](https://ic.wampi.ru/2023/03/20/image_2023-03-20_19-13-09.png)
+### Личный кабинет
+![image_2023-03-20_19-50-38.png](https://ic.wampi.ru/2023/03/20/image_2023-03-20_19-50-38.png)
 
