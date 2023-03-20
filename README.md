@@ -27,4 +27,4 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 ## Скриншоты приложения 
-![alt text](https://wampi.ru/image/RlySSFY)
+![image_2023-03-20_19-13-09.png](https://ic.wampi.ru/2023/03/20/image_2023-03-20_19-13-09.png)
