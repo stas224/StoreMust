@@ -34,5 +34,4 @@ python manage.py runserver
 ![image_2023-03-20_19-13-09.png](https://ic.wampi.ru/2023/03/20/image_2023-03-20_19-13-09.png)
 ### Личный кабинет
 ![BEZYMYNNYI9c41569f283965e4.png](https://im.wampi.ru/2023/04/17/BEZYMYNNYI9c41569f283965e4.png)
-![image_2023-03-20_19-50-38.png](https://ic.wampi.ru/2023/03/20/image_2023-03-20_19-50-38.png)
 
