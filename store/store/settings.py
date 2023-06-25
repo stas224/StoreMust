@@ -18,11 +18,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-i31hlpc3ww^mni^p!a1g5whpkh&dvf70#dwxx2dz3^j*(qx)2o'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+if DEBUG:
+    import store.secret as secret
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = secret.SECRET_KEY
+
 
 ALLOWED_HOSTS = ['*']
 
@@ -36,10 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
 
     'products',
     'users'
@@ -80,9 +86,13 @@ WSGI_APPLICATION = 'store.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": 'django.db.backends.postgresql_psycopg2',
+        "NAME": secret.POSTGRESQL["NAME"],
+        "USER": secret.POSTGRESQL["USER"],
+        "PASSWORD": secret.POSTGRESQL["PASSWORD"],
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
 
@@ -140,12 +150,32 @@ LOGIN_URL = '/users/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-if DEBUG:
-    from store.passwords import EMAIL_HOST_PASSWORD_YA
 
 # Sending emails
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'dedstasa@yandex.ru'
-EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD_YA
+EMAIL_HOST_PASSWORD = secret.EMAIL_HOST_PASSWORD_YA
 EMAIL_USE_SSL = True
+
+
+# OAuth
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'github': {
+        'SCOPE': [
+            'user',
+        ],
+    }
+
+}
