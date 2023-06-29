@@ -9,8 +9,12 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,11 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-if DEBUG:
-    import store.secret as secret
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret.SECRET_KEY
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 
 ALLOWED_HOSTS = ['*']
@@ -94,9 +95,9 @@ INTERNAL_IPS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': secret.POSTGRESQL['NAME'],
-        'USER': secret.POSTGRESQL['USER'],
-        'PASSWORD': secret.POSTGRESQL['PASSWORD'],
+        'NAME': os.getenv('POSTGRESQL_NAME'),
+        'USER': os.getenv('POSTGRESQL_USER'),
+        'PASSWORD': os.getenv('POSTGRESQL_PASSWORD'),
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -170,8 +171,8 @@ LOGOUT_REDIRECT_URL = '/'
 # Sending emails
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'dedstasa@yandex.ru'
-EMAIL_HOST_PASSWORD = secret.EMAIL_HOST_PASSWORD_YA
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER ')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD_YA')
 EMAIL_USE_SSL = True
 
 
