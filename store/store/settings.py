@@ -31,7 +31,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 ALLOWED_HOSTS = ['*']
 
-DOMAIN_NAME = 'http://localhost:8000'
+DOMAIN_NAME = 'http://127.0.0.1:8000'
 # Application definition
 
 INSTALLED_APPS = [
@@ -202,3 +202,8 @@ SOCIALACCOUNT_PROVIDERS = {
 # Celery
 CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
 CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
+
+
+# Stripe
+STRIPE_PUBLIC = os.getenv('STRIPE_PUBLIC')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET')
