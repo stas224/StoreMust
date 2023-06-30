@@ -38,10 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
+    'django.contrib.humanize',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.sessions',
     'django.contrib.sites',
+    'django.contrib.staticfiles',
 
     'allauth',
     'allauth.account',
@@ -49,8 +50,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',
     'debug_toolbar',
 
+    'orders',
     'products',
-    'users'
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -171,7 +173,7 @@ LOGOUT_REDIRECT_URL = '/'
 # Sending emails
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER ')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD_YA')
 EMAIL_USE_SSL = True
 
