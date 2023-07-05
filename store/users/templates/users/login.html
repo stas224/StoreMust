@@ -1,10 +1,6 @@
 {% extends 'users/base.html' %}
 {% load socialaccount %}
 
-{% block title %}
-<title>Store - Авторизация</title>
-{% endblock %}
-
 {% block error %}
 {% if form.non_field_errors or messages %}
 <div class="alert
