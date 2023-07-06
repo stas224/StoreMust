@@ -1,5 +1,10 @@
 {% extends 'products/base.html' %}
+{% load static %}
 {% load humanize %}
+
+{% block css %}
+    <link href="{% static 'vendor/css/orders.css' %}" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
     <section>
